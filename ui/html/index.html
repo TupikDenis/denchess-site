@@ -1,0 +1,185 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Главные линки на css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="../static/css/base.css" rel="stylesheet">
+    <link href="../static/css/footer.css" rel="stylesheet">
+    <link href="../static/css/nav.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/lib/css/all.min.css">
+    <!--Доп линки на css-->
+    <link href="../static/css/article-block.css" rel="stylesheet">
+    <link href="../static/css/denchesscup.css" rel="stylesheet">
+    <link href="../static/css/news.css" rel="stylesheet">
+    <title>Главная страница</title>
+
+</head>
+<body>
+    <nav>
+        <div class="menu pt-5 pb-5">
+            <div class="menu-info row text-center">
+                <div class="menu-element col">
+                   <a class="element" href="#">Главная страница</a> 
+                </div>
+
+                <div class="menu-element col">
+                    <a class="element" href="404.html">Все новости</a> 
+                </div>
+
+                <div class="menu-element col">
+                    <a class="element" href="404.html">Все статьи</a> 
+                </div>
+
+                <div class="menu-element col">
+                    <a class="element" href="404.html">Кубок канала DenChess</a> 
+                </div>
+
+                <div class="menu-element col">
+                    <a class="element" href="404.html">Авторы статей</a> 
+                </div>
+
+                <div class="menu-element col" id="menu-element-login-profile">
+                    <a class="element" href="404.html">Войти</a> 
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../static/img/1.jpg" class="d-block w-100" alt="Picture 1">
+              </div>
+              <div class="carousel-item">
+                <img src="../static/img/2.jpg" class="d-block w-100" alt="Picture 2">
+              </div>
+              <div class="carousel-item">
+                <img src="../static/img/3.jpg" class="d-block w-100" alt="Picture 3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="last-articles-block">
+            <div class="last-articles-block-name">
+                <h1 class="text-center">Последнии статьи</h1>
+            </div>
+
+            <!--3 штуки-->
+
+            <section>
+                <div class="last-articles-block-article mt-5">
+                    <div class="last-articles-block-article-preview">
+                        <div class="last-articles-block-article-image">
+                            <img src="../static/img/1.jpg" class="d-block last-articles-block-article-preview-image-preview" alt="Picture 1">
+                        </div>
+                        <div class="last-articles-block-preview-article pt-5 pb-5">
+                            <div class="last-articles-block-article-preview-header pb-5">
+                                <h1 class="text-center">Lorem input</h1>
+                            </div>
+                            <div class="last-articles-block-article-preview-text-preview mt-5">
+                                <p class="text-center">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    Soluta, sequi? Neque doloremque velit voluptatem, eum soluta ipsa dignissimos qui,
+                                    officia omnis cumque et quam expedita blanditiis a in magni consequatur.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="last-articles-block-read-more">
+                    <a href="404.html">
+                        <p class="text-center read-more">
+                            Далее
+                        </p>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div class="row denchess-cup">
+            <div class="col">
+                <img src="../static/img/two_kings.jpg" class="d-block" alt="Picture 1">
+            </div>
+            <div class="col">
+                <div class="denchess-cup-title">
+                    <h4 class="text-center denchess-cup-title-text">Второй кубок канала DenChess</h4>
+                </div>
+                <div class="denchess-cup-data">
+                    <h4 class="text-center denchess-cup-data-text">16 января - 23 октября</h4>
+                </div>
+                <div class="denchess-cup-info">
+                    <p class="text-center denchess-cup-info-text">
+                        Приглашаю всех вас сыграть на отборочных турнирах! Можете позвать друзей, чтобы было веселей!
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="denchess-cup-read-more">
+                    <a href="404.html">Подробнее</a>
+                </div>
+            </div>
+        </div>
+
+        <!--20 штук-->
+
+        <div class="news mt-5 mb-5">
+            <h2 class="mb-4">Последние новости шахмат</h2>
+            <table class="mb-2">
+                <tr>
+                    <td class="news-time">
+                        <p class="">19:00</p>
+                    </td>
+                    <td class="news-href">
+                        <!--Ограничение 125 символов-->
+                        <a class="news-href-text" href="404.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Porro maiores ad vel et deleniti molestiae numquam obcaecati ratione corrupti facere</a>
+                    </td>
+                </tr>
+            </table>
+            <a class="news-all">Все новости</a>
+        </div>
+    </main>
+
+    <footer class="p-5">
+        <div class="row">
+            <div class="col text-center">
+                <img class="footer-image" src="../static/img/denchess.jpg" alt="DenChess">
+            </div>
+            <div class="col text-center email">
+                tdenis.20012510@gmail.com
+            </div>
+            <div class="col text-center socnet">
+                <a href="https://vk.com/denchessvkblog" target="_blank" title="Группа в ВК">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="https://www.instagram.com/denchess25/?hl=ru" target="_blank" title="Instagram-аккаунт">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/c/DenChess25" target="_blank" title="YouTube-канал">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://t.me/denchess25" target="_blank" title="Telegram-канал">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

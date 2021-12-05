@@ -1,0 +1,19 @@
+footer{
+    border-top: 1px solid white;
+    background-color: #292823;
+    color:white;
+}
+
+.footer-image{
+    width: 100px;
+    height: 100px;
+}
+
+.email, .socnet{
+    padding-top: 30px;
+}
+
+.fab{
+    font-size: 30px;
+    padding-left: 3px;
+}

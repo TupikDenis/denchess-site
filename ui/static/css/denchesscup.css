@@ -1,0 +1,40 @@
+.denchess-cup{
+    border-top: 1px solid rgb(170, 162, 162);
+    border-bottom: 1px solid rgb(170, 162, 162);
+    padding-top: 10px;
+    padding-bottom: 20px;    
+}
+
+.denchess-cup-title{
+    padding-top: 60px;  
+}
+
+.denchess-cup-title-text, .denchess-cup-data-text{
+    font-weight: bolder;
+}
+
+.denchess-cup-title-text{
+    color: red;
+}
+
+.denchess-cup-info{
+    margin-top: 30px;  
+}
+
+.denchess-cup-read-more{
+    margin-top: 70px;
+    margin-left: 150px;
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    border-radius: 50%;
+    padding-top: 60px;
+    padding-left: 15px;
+    font-size: 20px;
+    color: white;
+    font-weight: bolder;
+}
+
+.denchess-cup-read-more:hover{
+    background-color: #52514e;
+}

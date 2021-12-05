@@ -1,0 +1,20 @@
+.news-href{
+    padding-left: 10px;
+    vertical-align: top;
+}
+
+.news-href-text{
+    color: blue;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+.news-time{
+    vertical-align: top;
+}
+
+.news-all{
+    color: blue;
+    text-decoration: underline;
+    vertical-align: top;
+}
