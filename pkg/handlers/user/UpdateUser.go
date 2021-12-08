@@ -36,7 +36,6 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 			user.Password = updatedUser.Password
 			user.LastName = updatedUser.LastName
 			user.FirstName = updatedUser.FirstName
-			user.Birthday = updatedUser.Birthday
 
 			mocks.Users[index] = user
 

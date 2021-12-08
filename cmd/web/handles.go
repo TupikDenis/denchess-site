@@ -1,46 +1,61 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
-	"text/template"
+
+	"github.com/gin-gonic/gin"
 )
 
-func home(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("./ui/html/home.html")
-
-	if err != nil {
-		fmt.Fprintf(w, err.Error())
-	}
-
-	err = t.ExecuteTemplate(w, "home.html", nil)
-	if err != nil {
-		fmt.Fprintf(w, err.Error())
-	}
+func home(c *gin.Context) {
+	c.HTML(http.StatusOK, "home.html", gin.H{
+		"title": "Главная страница",
+	})
 }
 
-func pageNotFound(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("./ui/html/404.html")
-
-	if err != nil {
-		fmt.Fprintf(w, err.Error())
-	}
-
-	err = t.ExecuteTemplate(w, "404.html", nil)
-	if err != nil {
-		fmt.Fprintf(w, err.Error())
-	}
+func pageNotFound(c *gin.Context) {
+	c.HTML(http.StatusOK, "nopage.html", gin.H{
+		"title": "Страница не найдена",
+	})
 }
 
-func news(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("./ui/html/news.html")
+func news(c *gin.Context) {
+	c.HTML(http.StatusOK, "news.html", gin.H{
+		"title": "Новости",
+	})
+}
 
-	if err != nil {
-		fmt.Fprintf(w, err.Error())
-	}
+func articles(c *gin.Context) {
+	c.HTML(http.StatusOK, "articles.html", gin.H{
+		"title": "Статьи",
+	})
+}
 
-	err = t.ExecuteTemplate(w, "news.html", nil)
-	if err != nil {
-		fmt.Fprintf(w, err.Error())
-	}
+func denchessCup(c *gin.Context) {
+	c.HTML(http.StatusOK, "articles.html", gin.H{
+		"title": "Кубок канала DenChess",
+	})
+}
+
+func articlesEditors(c *gin.Context) {
+	c.HTML(http.StatusOK, "articles_editors.html", gin.H{
+		"title": "Авторы статей",
+	})
+}
+
+func login(c *gin.Context) {
+	c.HTML(http.StatusOK, "login.html", gin.H{
+		"title": "Авторизация",
+	})
+}
+
+func registration(c *gin.Context) {
+	c.HTML(http.StatusOK, "registration.html", gin.H{
+		"title": "Регистрация",
+	})
+}
+
+func profile(c *gin.Context) {
+	c.HTML(http.StatusOK, "profile.html", gin.H{
+		"title": "Профиль",
+	})
 }

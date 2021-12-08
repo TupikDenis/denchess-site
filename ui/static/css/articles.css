@@ -1,0 +1,24 @@
+.articles{
+    margin-top: 150px;
+}
+
+.articles-block{
+    background-color: #d9d9d8;
+}
+
+.articles-block-image{
+}
+
+.articles-block-image-preview{
+    height: 270px;
+    width: 480px;
+}
+
+.article-block-text-preview-header{
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.article-block-text-preview-text{
+    font-size: 16px;
+}

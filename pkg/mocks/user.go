@@ -9,6 +9,5 @@ var Users = []models.User{
 		Password:  "1111",
 		LastName:  "Tupik",
 		FirstName: "Dzianis",
-		Birthday:  "2001-25-10",
 	},
 }
