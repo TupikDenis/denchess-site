@@ -1,12 +1,110 @@
 {{template "header.html" .}}
     
     <!--Доп линки на css-->
+    <link href="../static/css/base.css" rel="stylesheet">
+    <link href="../static/css/footer.css" rel="stylesheet">
+    <link href="../static/css/nav.css" rel="stylesheet">
+    <link href="../static/lib/css/all.min.css" rel="stylesheet">
+
+    <link href="../static/css/profile.css" rel="stylesheet">
+
     <title>{{ .title }}</title>
 
 {{template "nav.html" .}}
 
     <main class="">
+        <div class="profile mb-5 container">
+            <div class="profile-text">
+                <h1 class="mb-4">Профиль</h1>
+            </div>
+            <div class="profile-block d-flex flex-row mb-2">
+                <!--<div class="profile-block-image">
+                    <img src="../static/img/no_photo.jpg" class="profile-block-image" alt="Сhess">
+                </div>-->
+                <div class="profile-block-text">
+                    <div class="profile-block-full-name">
+                        <p class="m-3"> <b> {{ .full_name}} </b> </p>
+                    </div>
+                    <div class="profile-block-email">
+                        <p class="m-3">
+                            Почта: {{ .email}}
+                        </p>
+                    </div>
 
+                    <div class="profile-block-socnetwork m-3 d-flex flex-row">
+                        <p class="profile-block-socnetwork-text">
+                        Соцсети: 
+                        </p>
+                        {{ if ne .instagram "none"}}
+
+                        <a href="{{ .instagram}}" target="_blank" title="Instagram-аккаунт">
+                            <i class="fab fab-profile fa-instagram"></i>
+                        </a>
+
+                        {{end}}
+
+                        {{ if ne .vk "none"}}
+
+                        <a href="{{ .vk}}" target="_blank" title="Группа в ВК">
+                            <i class="fab fab-profile fa-vk"></i>
+                        </a>
+
+                        {{end}}
+                    </div>
+
+                    <div class="profile-block-text-button d-flex flex-row">
+                        <form action="/update_user/{{ .id}}" method="GET">
+                            <button type="submit" class="btn btn-warning m-2">Изменить данные</button>
+                        </form>
+                        
+                        {{if eq .rool "admin"}}
+                        <form action="/add_news/{{ .id}}" method="GET">
+                            <button type="submit" class="btn btn-success m-2">Добавить новость</button>
+                        </form>
+
+                        <form action="/add_article/{{ .id}}" method="GET">
+                            <button type="submit" class="btn btn-success m-2">Добавить статью</button>
+                        </form>
+
+                        <form action="/users" method="GET">
+                            <button type="submit" class="btn btn-info m-2">Список пользователей</button>
+                        </form>
+                        {{end}}
+
+                        {{if eq .rool "news"}}
+                        <form action="/add_news/{{ .id}}" method="GET">
+                            <button type="submit" class="btn btn-success m-2">Добавить новость</button>
+                        </form>
+                        {{end}}
+
+                        {{if eq .rool "article"}}
+                        <form action="/add_article/{{ .id}}" method="GET">
+                            <button type="submit" class="btn btn-success m-2">Добавить статью</button>
+                        </form>
+                        {{end}}
+
+                        {{if eq .rool "editor"}}
+                        <form action="/add_news/{{ .id}}" method="GET">
+                            <button type="submit" class="btn btn-success m-2">Добавить новость</button>
+                        </form>
+
+                        <form action="/add_article/{{ .id}}" method="GET">
+                            <button type="submit" class="btn btn-success m-2">Добавить статью</button>
+                        </form>
+                        {{end}}
+
+                        <form action="/logout" method="GET">
+                            <button type="submit" class="btn btn-danger m-2">Выйти из профиля</button>
+                        </form>
+
+                        <!--<form action="/user/{{ .id}}" method="DELETE">
+                            <button type="submit" class="btn btn-danger m-2">Удалить профиль</button>
+                        </form>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
 {{template "footer.html" .}}

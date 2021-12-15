@@ -1,6 +1,10 @@
 {{template "header.html" .}}
     
     <!--Доп линки на css-->
+    <link href="static/css/base.css" rel="stylesheet">
+    <link href="static/css/footer.css" rel="stylesheet">
+    <link href="static/css/nav.css" rel="stylesheet">
+    <link href="static/lib/css/all.min.css" rel="stylesheet">
     <link href="static/css/articles.css" rel="stylesheet">
     <title>{{ .title }}</title>
 
@@ -10,50 +14,38 @@
         <div class="articles mb-5 container">
             <h1 class="mb-4">Последние статьи</h1>
             <!-- По 15-20 статей на страницу-->
-            <div class="articles-block d-flex flex-row justify-content-between mb-2">
+            {{range $key, $value := .articles}}
+            <div class="articles-block d-flex flex-row mb-2">
                 <div class="articles-block-image">
                     <img src="static/img/1.jpg" class="articles-block-image-preview" alt="Сhess">
                 </div>
                 <div class="articles-block-text">
                     <div class="article-block-text-preview-header">
-                        <p class="m-3">Lorem input</p>
+                        <p class="m-3">{{ $value.Title}}</p>
                     </div>
                     <div class="article-block-text-preview-text">
                         <p class="m-3">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Soluta, sequi? Neque doloremque velit voluptatem, eum soluta ipsa dignissimos qui,
-                            officia omnis cumque et quam expedita blanditiis a in magni consequatur.
+                            {{ $value.TextPreview}}
                         </p>
-                    </div>
+                    </div>        
                     <div class="article-block-text-button">
-                        <button type="button" class="btn btn-success m-3">Успех</button>
+                        <form action="/article/{{ $value.Id}}" method="GET">
+                            <button type="submit" class="btn btn-success m-3 mt-1">Читать далее</button>
+                        </form>                
+                    </div>
+                    <div class="article-block-data-create m-3" style="float: right;">
+                        {{ $value.CreatedAt}}
                     </div>
                 </div>
+            
             </div>
+            {{ end}}
 
-            <div class="articles-block d-flex flex-row justify-content-between mb-2">
-                <div class="articles-block-image">
-                    <img src="static/img/1.jpg" class="articles-block-image-preview" alt="Сhess">
-                </div>
-                <div class="articles-block-text">
-                    <div class="article-block-text-preview-header">
-                        <p class="m-3">Lorem input</p>
-                    </div>
-                    <div class="article-block-text-preview-text">
-                        <p class="m-3">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Soluta, sequi? Neque doloremque velit voluptatem, eum soluta ipsa dignissimos qui,
-                            officia omnis cumque et quam expedita blanditiis a in magni consequatur.
-                        </p>
-                    </div>
-                    <div class="article-block-text-button">
-                        <button type="button" class="btn btn-success m-3">Успех</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
 
 {{template "footer.html" .}}
+
+
 
 {{template "scripts.html" .}}

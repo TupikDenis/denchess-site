@@ -1,6 +1,10 @@
 {{template "header.html" .}}
 
     <!--Доп линки на css-->
+    <link href="static/css/base.css" rel="stylesheet">
+    <link href="static/css/footer.css" rel="stylesheet">
+    <link href="static/css/nav.css" rel="stylesheet">
+    <link href="static/lib/css/all.min.css" rel="stylesheet">
     <link href="static/css/article-block.css" rel="stylesheet">
     <link href="static/css/denchesscup.css" rel="stylesheet">
     <link href="static/css/news.css" rel="stylesheet">
@@ -36,7 +40,7 @@
                 <h1 class="text-center">Последнии статьи</h1>
             </div>
 
-            <!--3 штуки-->
+            {{range $key, $value := .articles}}
 
             <section>
                 <div class="last-articles-block-article mt-5">
@@ -45,14 +49,12 @@
                             <img src="static/img/1.jpg" class="d-block last-articles-block-article-preview-image-preview" alt="Picture 1">
                         </div>
                         <div class="last-articles-block-preview-article pt-5 pb-5">
-                            <div class="last-articles-block-article-preview-header pb-5">
-                                <h1 class="text-center">Lorem input</h1>
+                            <div class="last-articles-block-article-preview-header pb-3">
+                                <p class="text-center"> <b>{{ $value.Title}}</b> </p>
                             </div>
-                            <div class="last-articles-block-article-preview-text-preview mt-5">
+                            <div class="last-articles-block-article-preview-text-preview mt-3">
                                 <p class="text-center">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    Soluta, sequi? Neque doloremque velit voluptatem, eum soluta ipsa dignissimos qui,
-                                    officia omnis cumque et quam expedita blanditiis a in magni consequatur.
+                                    {{ $value.TextPreview}}
                                 </p>
                             </div>
 
@@ -61,13 +63,15 @@
                 </div>
 
                 <div class="last-articles-block-read-more">
-                    <a href="404.html">
+                    <a href="/article/{{ $value.Id}}">
                         <p class="text-center read-more">
                             Далее
                         </p>
                     </a>
                 </div>
             </section>
+
+            {{end}}
         </div>
 
         <div class="row denchess-cup">
@@ -89,7 +93,7 @@
             </div>
             <div class="col">
                 <div class="denchess-cup-read-more">
-                    <a href="404.html">Подробнее</a>
+                    <a href="/denchess_cup">Подробнее</a>
                 </div>
             </div>
         </div>
@@ -99,18 +103,21 @@
         <div class="news mt-5 mb-5">
             <h2 class="mb-4">Последние новости шахмат</h2>
             <table class="mb-2">
+                {{range $key, $value := .news}}
                 <tr>
                     <td class="news-time">
-                        <p class="">19:00</p>
+                        <p class="">{{ $value.CreatedAt}}</p>
                     </td>
                     <td class="news-href">
                         <!--Ограничение 125 символов-->
-                        <a class="news-href-text" href="404.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Porro maiores ad vel et deleniti molestiae numquam obcaecati ratione corrupti facere</a>
+
+                        <a class="news-href-text" href="/news/{{$value.Id}}">{{ $value.Title}}</a>
                     </td>
                 </tr>
+                {{end}}
+
             </table>
-            <a class="news-all">Все новости</a>
+            <a href="/news" class="news-all">Все новости</a>
         </div>
     </main>
 

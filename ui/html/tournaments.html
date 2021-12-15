@@ -1,0 +1,220 @@
+{{template "header.html" .}}
+    
+    <!--Доп линки на css-->
+    <link href="../static/css/base.css" rel="stylesheet">
+    <link href="../static/css/footer.css" rel="stylesheet">
+    <link href="../static/css/nav.css" rel="stylesheet">
+    <link href="../static/lib/css/all.min.css" rel="stylesheet">
+    <link href="../static/css/cuppage.css" rel="stylesheet">
+    <link href="../static/css/tournaments.css" rel="stylesheet">
+    <title>{{ .title }}</title>
+
+{{template "nav.html" .}}
+
+    <main class="">
+        <div class="denchess-cup mb-5 container">
+            <h1 class="mb-4">{{ .title}}</h1>
+
+            <h2>Финал</h2>
+
+            <pre>
+Место   Ник                     Страна  Рейтинг     Звание  Очки      Бергер     Победы  Прогресс
+1       Kasparov_Dmitry         RUS     2216        I       11.5      69.50      4       46.0
+2       Chessmaste              BLR     2476        мс      11        49.25      3       43.5
+3       GarryReason             BLR     2198        кмс     8         41.00      1       27.0
+4       leeho_pobedil           RUS     2201        II      8         38.00      2       31.5
+5       amor4ati                UKR     2334        кмс     7.5       40.00      1       24.0
+6       Telegin_Dmitriy22       UKR     2177                6         31.25      0       30.0
+7       gig51600                BLR     2079        II      4         13.50      1       22.0
+8       Roma157                 MOL     2099        кмс     0          0.00      0        0.0
+            </pre>
+
+                <TABLE class="chess" WIDTH=100% BORDER=4 CELLSPACING=1 CELLPADDING=3>
+                <TR>
+                <TD ALIGN=LEFT NOWRAP><B><FONT SIZE=3>Стартовый номер</FONT></B></TD>
+                <TD ALIGN=LEFT NOWRAP><B><FONT SIZE=3>Ник</FONT></B></TD>
+                <TD ALIGN=LEFT NOWRAP><B><FONT SIZE=3>Страна</FONT></B></TD>
+                <TD ALIGN=LEFT NOWRAP><B><FONT SIZE=3>Рейтинг</FONT></B></TD>
+                <TD ALIGN=CENTER NOWRAP><B><FONT SIZE=3>#1</FONT></B></TD>
+                <TD ALIGN=CENTER NOWRAP><B><FONT SIZE=3>#2</FONT></B></TD>
+                <TD ALIGN=CENTER NOWRAP><B><FONT SIZE=3>#3</FONT></B></TD>
+                <TD ALIGN=CENTER NOWRAP><B><FONT SIZE=3>#4</FONT></B></TD>
+                <TD ALIGN=CENTER NOWRAP><B><FONT SIZE=3>#5</FONT></B></TD>
+                <TD ALIGN=CENTER NOWRAP><B><FONT SIZE=3>#6</FONT></B></TD>
+                <TD ALIGN=CENTER NOWRAP><B><FONT SIZE=3>#7</FONT></B></TD>
+                <TD ALIGN=CENTER NOWRAP><B><FONT SIZE=3>#8</FONT></B></TD>
+                </TR>
+                
+                
+                <TR>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>1.</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>Chessmaste</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>BLR</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>2476</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>*</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>2.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>+</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>.5</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>2.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>+</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.5</FONT></TD>
+                </TR>
+                
+                <TR>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>2.</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>GarryReason</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>BLR</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>2198</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>0.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>*</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>+</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>2.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                </TR>
+                
+                <TR>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>3.</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>Roma157</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>MOL</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>2099</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>-</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>-</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>*</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>-</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>-</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>0.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>-</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>-</FONT></TD>
+                </TR>
+                
+                <TR>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>4.</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>Kasparov_Dmitry</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>RUS</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>2216</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.5</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>+</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>*</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>2.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>2.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>2.0</FONT></TD>
+                </TR>
+                
+                <TR>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>5.</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>amor4ati</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>UKR</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>2334</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>+</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>0.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>*</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.5</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                </TR>
+                
+                <TR>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>6.</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>gig51600</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>BLR</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>2079</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>0.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>0.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>2.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>0.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>*</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>0.0</FONT></TD>
+                </TR>
+                
+                <TR>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>7.</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>Telegin_Dmitriy22</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>UKR</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>2177</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>-</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>+</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>.5</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>*</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>.5</FONT></TD>
+                </TR>
+                
+                <TR>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>8.</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>leeho_pobedil</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>RUS</FONT></TD>
+                <TD ALIGN=LEFT NOWRAP><FONT SIZE=3>2201</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>.5</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>+</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>0.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>2.0</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>1.5</FONT></TD>
+                <TD ALIGN=CENTER NOWRAP><FONT SIZE=3>*</FONT></TD>
+                </TR>
+            </TABLE>
+
+            <h2>Общий зачёт</h2>
+            <table>
+                <tr>
+                    <th>Место</th>
+                    <th>Пользователь</th>
+                    <th>Количество зачётных баллов</th>
+                    <th>Количество 1 мест</th>
+                    <th>Количество 2 мест</th>
+                    <th>Количество 3 мест</th>
+                    <th>Общее количество баллов</th>
+                </tr>
+                {{range $key, $value := .players}}
+                    {{if ne $value.TotalScore 0}}
+                        {{if lt $key 8}}
+                        <tr>
+                            <td style="background-color: greenyellow;">{{ $value.Rank}}</td>
+                            <td style="background-color: greenyellow;">{{ $value.Username}}</td>
+                            <td style="background-color: greenyellow;">{{ $value.TotalScore}}</td>
+                            <td style="background-color: greenyellow;">{{ $value.TotalFirstPlace}}</td>
+                            <td style="background-color: greenyellow;">{{ $value.TotalSecondtPlace}}</td>
+                            <td style="background-color: greenyellow;">{{ $value.TotalThirdPlace}}</td>
+                            <td style="background-color: greenyellow;">{{ $value.TotalPoints}}</td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <td>{{ $value.Rank}}</td>
+                            <td>{{ $value.Username}}</td>
+                            <td>{{ $value.TotalScore}}</td>
+                            <td>{{ $value.TotalFirstPlace}}</td>
+                            <td>{{ $value.TotalSecondtPlace}}</td>
+                            <td>{{ $value.TotalThirdPlace}}</td>
+                            <td>{{ $value.TotalPoints}}</td>
+                        </tr>
+                        {{end}}  
+                    {{end}}
+                {{end}}
+            </table>
+                
+            <form action="/add_tournament" id="form_add" method="POST">
+                <input type="hidden" name="year" value="2021">
+                <input type="text" name="name" placeholder="Введите название турнира"><br>
+                <input type="text" name="number" placeholder="Введите id турнира"><br>
+                <button type="submit" class="btn btn-success m-2">Добавить турнир</button>
+            </form>
+        </div>
+        
+    </main>
+
+{{template "footer.html" .}}
+
+{{template "scripts.html" .}}

@@ -1,48 +1,52 @@
 package user
 
 import (
-	"encoding/json"
-	"io/ioutil"
 	"log"
-	"net/http"
-	"strconv"
 
-	"github.com/TupikDenis/denchess-site.git/pkg/mocks"
+	"github.com/TupikDenis/denchess-site.git/pkg/handlers"
 	"github.com/TupikDenis/denchess-site.git/pkg/models"
-	"github.com/gorilla/mux"
 )
 
-func UpdateUser(w http.ResponseWriter, r *http.Request) {
-	// Read dynamic id parameter
-	vars := mux.Vars(r)
-	id, _ := strconv.Atoi(vars["id"])
+func UpdateUserRool(id uint, rool string) {
+	var user models.User
+	log.Println(id)
 
-	// Read request body
-	defer r.Body.Close()
-	body, err := ioutil.ReadAll(r.Body)
+	db := handlers.Database()
+	db.Find(&user, id)
 
-	if err != nil {
-		log.Fatalln(err)
+	user.Rool = rool
+
+	log.Println(rool)
+
+	db.Save(&user)
+	db.Close()
+}
+
+func UpdateUserName(id uint, last string, first string) {
+	var user models.User
+
+	db := handlers.Database()
+	db.First(&user, id)
+
+	user.FirstName = first
+	user.LastName = last
+
+	db.Save(&user)
+	db.Close()
+}
+
+func UpdateUserPassword(id uint, password string, newPassword string) {
+	var user models.User
+
+	db := handlers.Database()
+	db.First(&user, id)
+
+	if user.Password != password {
+		return
 	}
 
-	var updatedUser models.User
-	json.Unmarshal(body, &updatedUser)
+	user.Password = newPassword
 
-	// Iterate over all the mock Books
-	for index, user := range mocks.Users {
-		if user.Id == id {
-			// Update and send response when book Id matches dynamic Id
-			user.Email = updatedUser.Email
-			user.Password = updatedUser.Password
-			user.LastName = updatedUser.LastName
-			user.FirstName = updatedUser.FirstName
-
-			mocks.Users[index] = user
-
-			w.Header().Add("Content-Type", "application/json")
-			w.WriteHeader(http.StatusOK)
-			json.NewEncoder(w).Encode("Updated")
-			break
-		}
-	}
+	db.Save(&user)
+	db.Close()
 }

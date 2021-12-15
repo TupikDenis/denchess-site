@@ -1,0 +1,25 @@
+.articles-editors{
+    margin-top: 150px;
+}
+
+.articles-editors-block{
+    background-color: #d9d9d8;
+}
+
+.articles-editors-block-text{
+    float: left;
+}
+
+.articles-editors-block-image-preview{
+    height: 250px;
+    width: 250px;
+}
+
+.article-editors-block-text-preview-header{
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.article-editors-block-text-preview-text{
+    font-size: 16px;
+}

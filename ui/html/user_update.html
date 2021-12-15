@@ -1,0 +1,151 @@
+{{template "header.html" .}}
+    
+    <!--Доп линки на css-->
+    <link href="../static/css/base.css" rel="stylesheet">
+    <link href="../static/css/footer.css" rel="stylesheet">
+    <link href="../static/css/nav.css" rel="stylesheet">
+    <link href="../static/lib/css/all.min.css" rel="stylesheet">
+    <link href="../static/css/log-reg-upd.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
+    <title>{{ .title}}</title>
+
+{{template "nav.html" .}}
+
+    <main>
+        <div class="myform p-x-1 p-y-3">
+            <form action="/users/names/{{ .id}}" id="update_name_form" method="POST" class="card card-block m-x-auto bg-faded form-width">
+                <input type="hidden" name="_method" value="PUT">
+                <legend class="m-b-1 text-xs-center">Изменить фамилию и имя</legend>
+                <div class="form-group input-group">
+                    <span class="has-float-label">
+                        <input name="first_name" class="form-control" id="first" type="text" placeholder="Имя" value="{{ .first_name}}"/>
+                        <label for="first">Имя</label>
+                    </span>
+                    <span class="has-float-label">
+                        <input name="last_name" class="form-control" id="last" type="text" placeholder="Фамилия" value="{{ .last_name}}"/>
+                        <label for="last">Фамилия</label>
+                    </span>
+                </div>
+                <div class="text-xs-center">
+                    <button class="btn btn-block btn-primary" type="submit">Изменить</button>
+                </div>
+            </form>
+
+            <form action="/users/password/{{ .id}}" id="update_password_form" method="POST" class="card card-block m-x-auto bg-faded form-width">
+                <legend class="m-b-1 text-xs-center">Изменить пароль</legend>
+                <div class="form-group has-float-label">
+                    <input name="password" class="form-control" id="password" type="password" placeholder="••••••••"/>
+                    <label for="password">Старый пароль</label>
+                </div>
+                <div class="form-group has-float-label mt-3">
+                    <input name="new_password" class="form-control" id="password" type="password" placeholder="••••••••"/>
+                    <label for="password">Новый Пароль</label>
+                </div>
+                <div class="text-xs-center">
+                    <button class="btn btn-block btn-primary" type="submit">Изменить</button>
+                </div>
+            </form>
+
+            <!--Если успею-->
+            <!--<form action="/user" method="PUT" class="card card-block m-x-auto bg-faded form-width">
+                <legend class="m-b-1 text-xs-center">Изменить аватарку</legend>
+                <div class="form-group has-float-label">
+                    <input name="password" class="form-control" id="password" type="password" placeholder="••••••••"/>
+                    <label for="password">Старый пароль</label>
+                </div>
+            </form>-->
+
+            <form action="/users/socnetwork/{{ .id}}" id="update_socnetworks_form" method="POST" class="card card-block m-x-auto bg-faded form-width">
+                <legend class="m-b-1 text-xs-center">Изменить соцсети</legend>
+                <div class="form-group has-float-label">
+                    <input name="vk" class="form-control" id="vk" type="vk" value="{{ .vk}}" placeholder="VK"/>
+                    <label for="vk">VK</label>
+                </div>
+                <div class="form-group has-float-label mt-3">
+                    <input name="insta" class="form-control" id="insta" type="insta" value="{{ .instagram}}" placeholder="insta"/>
+                    <label for="password">Instagram</label>
+                </div>
+                <div class="text-xs-center">
+                    <button class="btn btn-block btn-primary" type="submit">Изменить</button>
+                </div>
+            </form>
+
+            <form action="/users/{{ .id}}" id="delete_form" class="m-x-auto form-width" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger m-2" value="Delete">Удалить профиль</button>
+            </form>
+
+            
+        </div>  
+    </main>
+
+{{template "footer.html" .}}
+
+<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
+<script>
+    $('#delete_form').submit(function(e){
+        e.preventDefault();
+        var formAction = $(this).attr('action')
+        $.ajax({
+            url: formAction,
+            type: "DELETE",
+            
+            success: function(data){
+                window.location.href = "/";
+            }
+        });
+
+    });
+
+    $('#update_name_form').submit(function(e){
+        e.preventDefault();
+        var formData = $(this).serialize();
+        var formAction = $(this).attr('action')
+        $.ajax({
+            url: formAction,
+            data: formData,
+            type: "PUT",
+            
+            success: function(data){
+                window.location.href = "/users/{{ .id}}";
+            }
+        });
+
+    });
+
+    $('#update_password_form').submit(function(e){
+        e.preventDefault();
+        var formData = $(this).serialize();
+        var formAction = $(this).attr('action')
+        $.ajax({
+            url: formAction,
+            data: formData,
+            type: "PUT",
+            
+            success: function(data){
+                window.location.href = "/users/{{ .id}}";
+            }
+        });
+
+    });
+
+    $('#update_socnetworks_form').submit(function(e){
+        e.preventDefault();
+        var formData = $(this).serialize();
+        var formAction = $(this).attr('action')
+        $.ajax({
+            url: formAction,
+            data: formData,
+            type: "PUT",
+            
+            success: function(data){
+                window.location.href = "/users/{{ .id}}";
+            }
+        });
+
+    });
+
+</script>
+
+{{template "scripts.html" .}}

@@ -1,0 +1,87 @@
+{{template "header.html" .}}
+    
+    <!--Доп линки на css-->
+    <link href="../static/css/base.css" rel="stylesheet">
+    <link href="../static/css/footer.css" rel="stylesheet">
+    <link href="../static/css/nav.css" rel="stylesheet">
+    <link href="../static/lib/css/all.min.css" rel="stylesheet">
+    <link href="../static/css/article-news.css" rel="stylesheet"> 
+    <title>{{ .title }}</title>
+
+{{template "nav.html" .}}
+
+    <main class="">
+        <div class="article-news mb-5 container">
+            <h1 class="mb-4">Новость</h1>
+            <div class="article-news-block mb-5">
+                <div class="article-news-block-text-preview-header pt-1">
+                    <p class="m-3">{{ .title_news}}</p>
+                </div>
+                <div id="content" class="article-news-block-full-text mt-2"></div>
+                {{if eq .id .id_user}}
+                <div class="article-news-block-change mt-2">
+                    <form action="/edit_news/{{ .id_news}}" method="GET">
+                        <button type="submit" class="btn btn-warning m-2">Изменить данные</button>
+                    </form>
+                    <form id="delete_news_form" action="/news/{{ .id_news}}" method="POST">
+                        <button type="submit" class="btn btn-danger m-2">Удалить новость</button>
+                    </form>
+                </div>
+                {{end}}
+
+            </div>
+
+            <h1 class="mb-4">Комментарии</h1>
+            {{range $key, $value := .comments}}
+
+            <div class="comments mt-2">
+                    <div class="comments-author">
+                        <p class="m-2 author">{{ $value.UserName}}</p>
+                    </div>
+                    <div class="comments-text">
+                        <p class="m-2">
+                            {{ $value.Text}}
+                        </p>
+                    </div>
+                    <div class="comments-time">
+                        <p class="comments-time-text">
+                            {{ $value.CreatedAt}}
+                        </p>
+                    </div>         
+            </div>
+            {{end}}
+
+            {{if gt .id 0}}
+
+            <form action="/news/comments/{{ .id_news}}" method="GET">
+                <button type="submit" class="btn btn-success m-2">Добавить комментарий</button>
+            </form>
+
+            {{end}}
+
+        </div>
+    </main>
+
+{{template "footer.html" .}}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+    document.getElementById("content").innerHTML = "{{ .news_text}}";
+
+    $('#delete_news_form').submit(function(e){
+        e.preventDefault();
+        var formAction = $(this).attr('action');
+        $.ajax({
+            url: formAction,
+            type: "DELETE",
+            
+            success: function(data){
+                window.location.href = "/news";
+            }
+        });
+
+    });
+</script>
+
+{{template "scripts.html" .}}

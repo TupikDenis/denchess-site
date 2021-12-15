@@ -12,20 +12,31 @@
                 </div>
 
                 <div class="menu-element col">
-                    <a class="element" href="/articles">Все статьи</a> 
+                    <a class="element" href="/article">Все статьи</a> 
                 </div>
 
                 <div class="menu-element col">
                     <a class="element" href="/denchess_cup">Кубок канала DenChess</a> 
                 </div>
 
+                <!--
                 <div class="menu-element col">
                     <a class="element" href="/articles_editors">Авторы статей</a> 
                 </div>
+                -->
+                
+                {{if gt .id 0}}
 
-                <div class="menu-element col" id="menu-element-login-profile">
-                    <a class="element" href="/login">Войти</a> 
+                <div class="menu-element col">
+                    <a class="element" href="/users/{{ .id}}">{{ .full_name }}</a> 
                 </div>
+
+                {{else}}
+                
+                <div class="menu-element col" id="menu-element-login-profile">
+                    <a class="element" href="/signin">Войти</a> 
+                </div>
+                {{end}}
             </div>
         </div>
     </nav>

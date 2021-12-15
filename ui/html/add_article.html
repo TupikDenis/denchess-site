@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{{template "header.html" .}}
+ 
+    <title>{{ .title }}</title>
+</head>
+<body>
+    <main class="">
+        <div class="article m-5">
+            <form action="/article" method="POST">
+                <h1 class="">{{ .title }}</h1> <br>
+                <input class="mt-1 mb-3" style=" width: 500px" type="text" name="title" id="title" placeholder="Введите название (до 75 символов)" minlength="5" maxlength="75"> <br>
+                <textarea class="mb-5" name="article-preview" cols="100" rows="5" placeholder="Введите превью (до 100 символов)" maxlength="100"></textarea> <br>
+                <textarea class="mt-3" name="article-content" id="article-content" cols="100" rows="20" placeholder="Введите текст"></textarea> <br>
+                <button type="submit" class="get-article-content btn btn-success m-2">Добавить статью</button><br>
+            </form>
+        </div>
+    </main>
+
+
+<script src="https://cdn.tiny.cloud/1/i938dvy50tpdr7uvgwpxqqoqivsvwzvwxgs7p8ahka50g2h5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#article-content',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | code | print preview media fullpage | forecolor backcolory | outdent indent', //image near code
+        plugins: 'code', //image
+        /*image_advtab: true,
+        automatic_uploads: true,
+
+        file_picker_callback: function(cb, value, meta) {
+            var input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+
+            input.onchange = function() {
+                var file = this.files[0];
+                var reader = new FileReader();
+                
+                reader.onload = function () {
+                    var id = 'blobid' + (new Date()).getTime();
+                    var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+                    var base64 = reader.result.split(',')[1];
+                    var blobInfo = blobCache.create(id, file, base64);
+                    blobCache.add(blobInfo);
+
+                    // call the callback and populate the Title field with the file name
+                    cb(blobInfo.blobUri(), { title: file.name });
+                };
+            reader.readAsDataURL(file);
+            };
+    
+            input.click();
+        }*/
+    });
+
+    let html
+    const textArea = document.querySelector('#article-content')
+    document.querySelector('.get-articles-content').addEventListener('click', ()=>{
+        html = tinymce.get('article-content').getContent();
+    })
+</script>
+
+<script>
+
+</script>
+{{template "scripts.html" .}}

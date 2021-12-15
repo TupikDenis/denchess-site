@@ -1,34 +1,36 @@
 package user
 
 import (
-	"encoding/json"
-	"io/ioutil"
-	"log"
-	"math/rand"
 	"net/http"
 
-	"github.com/TupikDenis/denchess-site.git/pkg/mocks"
+	"github.com/TupikDenis/denchess-site.git/pkg/handlers"
+	"github.com/TupikDenis/denchess-site.git/pkg/handlers/socnetwork"
+
 	"github.com/TupikDenis/denchess-site.git/pkg/models"
+	"github.com/gin-gonic/gin"
 )
 
-func AddUser(w http.ResponseWriter, r *http.Request) {
-	// Read to request body
-	defer r.Body.Close()
-	body, err := ioutil.ReadAll(r.Body)
+func AddUser(c *gin.Context) {
+	email := c.PostForm("email")
+	password := c.PostForm("password")
+	firstName := c.PostForm("first_name")
+	lastName := c.PostForm("last_name")
 
-	if err != nil {
-		log.Fatalln(err)
+	user := models.User{
+		Email:     email,
+		Password:  password,
+		FirstName: firstName,
+		LastName:  lastName,
+		Rool:      "user",
 	}
 
-	var user models.User
-	json.Unmarshal(body, &user)
+	db := handlers.Database()
+	db.AutoMigrate(&models.User{})
+	db.Create(&user)
 
-	// Append to the Book mocks
-	user.Id = rand.Intn(100)
-	mocks.Users = append(mocks.Users, user)
+	socnetwork.AddSocNetwork(user.ID)
 
-	// Send a 201 created response
-	w.Header().Add("Content-Type", "application/json")
-	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode("Created")
+	db.Close()
+
+	c.Redirect(http.StatusFound, "/signin")
 }

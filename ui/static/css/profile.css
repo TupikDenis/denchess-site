@@ -1,0 +1,38 @@
+.profile{
+    margin-top: 170px;
+}
+
+.profile-text{
+    margin-top: 100px;
+}
+
+.profile-block{
+    background-color: #d9d9d8;
+}
+
+.profile-block-text{
+    float: left;
+}
+
+.profile-block-image{
+    height: 272px;
+    width: 272px;
+}
+
+.profile-block-full-name{
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.profile-block-email, .profile-block-socnetwork{
+    font-size: 16px;
+}
+
+.profile-block-socnetwork-text{
+    font-size: 20px;
+}
+
+.fab-profile{
+    font-size: 30px;
+    padding-left: 10px;
+}

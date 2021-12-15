@@ -1,6 +1,10 @@
 {{template "header.html" .}}
     
     <!--Доп линки на css-->
+    <link href="static/css/base.css" rel="stylesheet">
+    <link href="static/css/footer.css" rel="stylesheet">
+    <link href="static/css/nav.css" rel="stylesheet">
+    <link href="static/lib/css/all.min.css" rel="stylesheet">
     <link href="static/css/news.css" rel="stylesheet">
     <title>{{ .title }}</title>
 
@@ -10,20 +14,26 @@
         <div class="news mb-5" id="news">
             <h2 class="mb-4">Новости шахмат</h2>
             <table class="mb-2">
+                
+                {{range $key, $value := .news}}
                 <tr>
                     <td class="news-time">
-                        <p class="">19:00</p>
+                        <p class="">{{ $value.CreatedAt}}</p>
                     </td>
                     <td class="news-href">
                         <!--Ограничение 125 символов-->
-                        <a class="news-href-text" href="404.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Porro maiores ad vel et deleniti molestiae numquam obcaecati ratione corrupti facere</a>
+
+                        <a class="news-href-text" href="/news/{{$value.Id}}">{{ $value.Title}}</a>
                     </td>
                 </tr>
+                {{end}}
+
             </table>
         </div>
     </main>
 
 {{template "footer.html" .}}
+
+<script></script>
 
 {{template "scripts.html" .}}

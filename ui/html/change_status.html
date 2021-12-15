@@ -1,0 +1,80 @@
+{{template "header.html" .}}
+    
+    <!--Доп линки на css-->
+    <link href="../static/css/base.css" rel="stylesheet">
+    <link href="../static/css/footer.css" rel="stylesheet">
+    <link href="../static/css/nav.css" rel="stylesheet">
+    <link href="../static/lib/css/all.min.css" rel="stylesheet">
+    <link href="../static/css/log-reg-upd.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
+    <title>{{ .title}}</title>
+
+{{template "nav.html" .}}
+
+    <main>
+        <div class="myform p-x-1 p-y-3">
+            <form action="/users/rool/{{ .iuUser}}" id="update_rool_form" method="GET" class="card card-block m-x-auto bg-faded form-width">
+                <input type="hidden" name="_method" value="PUT">
+                <legend class="m-b-1 text-xs-center">Изменить статус</legend>
+                <div class="form-group input-group">
+                    {{if eq .rool  "user"}}
+                    <input type="radio" name="rool" id="user" value="user" checked> User <br>
+                    {{else}}
+                    <input type="radio" name="rool" id="user" value="user"> User <br>
+                    {{end}}
+
+                    {{if eq .rool  "news"}}
+                    <input type="radio" name="rool" id="news" value="news" checked> News <br>
+                    {{else}}
+                    <input type="radio" name="rool" id="news" value="news"> News <br>
+                    {{end}}
+
+                    {{if eq .rool  "article"}}
+                    <input type="radio" name="rool" id="article" value="article" checked> Article <br>
+                    {{else}}
+                    <input type="radio" name="rool" id="article" value="article"> Article <br>
+                    {{end}}
+
+                    {{if eq .rool  "editor"}}
+                    <input type="radio" name="rool" id="editor" value="editor" checked> Editor <br>
+                    {{else}}
+                    <input type="radio" name="rool" id="editor" value="editor"> Editor <br>
+                    {{end}}
+
+                    {{if eq .rool  "admin"}}
+                    <input type="radio" name="rool" id="admin" value="admin" checked> Admin <br>
+                    {{else}}
+                    <input type="radio" name="rool" id="admin" value="admin"> Admin <br>
+                    {{end}}
+                </div>
+                <div class="text-xs-center">
+                    <button class="btn btn-block btn-primary" type="submit">Изменить</button>
+                </div>
+            </form>     
+        </div>  
+    </main>
+
+{{template "footer.html" .}}
+
+<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
+<script>
+    $('#update_rool_form').submit(function(e){
+        e.preventDefault();
+        var formData = $(this).serialize();
+        var formAction = $(this).attr('action')
+        $.ajax({
+            url: formAction,
+            data: formData,
+            type: "PUT",
+            
+            success: function(data){
+                window.location.href = "/users";
+            }
+        });
+
+    });
+
+</script>
+
+{{template "scripts.html" .}}

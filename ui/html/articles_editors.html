@@ -1,0 +1,42 @@
+{{template "header.html" .}}
+    
+    <!--Доп линки на css-->
+    <link href="static/css/base.css" rel="stylesheet">
+    <link href="static/css/footer.css" rel="stylesheet">
+    <link href="static/css/nav.css" rel="stylesheet">
+    <link href="static/lib/css/all.min.css" rel="stylesheet">
+    <link href="static/css/articles_editors.css" rel="stylesheet"> 
+    <title>{{ .title }}</title>
+
+{{template "nav.html" .}}
+
+    <main class="">
+        <div class="articles-editors mb-5 container">
+            <h1 class="mb-4">Авторы статей</h1>
+            <!-- По 15-20 статей на страницу-->
+            <div class="articles-editors-block d-flex flex-row mb-2">
+                <div class="articles-block-image">
+                    <img src="static/img/no_photo.jpg" class="articles-editors-block-image-preview" alt="Сhess">
+                </div>
+                <div class="articles-editors-block-text">
+                    <div class="article-editors-block-text-preview-header">
+                        <p class="m-3">Author Name</p>
+                    </div>
+                    <div class="article-editors-block-text-preview-text">
+                        <p class="m-3">
+                            Кратко о том, о чём пишет
+                        </p>
+                    </div>
+                    <div class="article-editors-block-text-button">
+                        <form action="/articles_editors/1" method="GET">
+                            <button type="submit" class="btn btn-success m-3">Просмотреть его статьи</button>
+                        </form>                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{{template "footer.html" .}}
+
+{{template "scripts.html" .}}

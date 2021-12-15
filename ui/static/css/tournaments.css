@@ -1,0 +1,17 @@
+TABLE {
+    border-collapse: collapse;
+    margin-bottom: 50px;
+}
+TD, TH {
+    width: 100px;
+    text-align: center;
+    padding: 3px; 
+    border: 1px solid black; 
+}
+TH {
+    background: #b0e0e6; 
+}
+
+.users{
+    margin-top: 150px;
+}

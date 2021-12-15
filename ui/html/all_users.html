@@ -1,0 +1,47 @@
+{{template "header.html" .}}
+    
+    <!--Доп линки на css-->
+    <link href="static/css/base.css" rel="stylesheet">
+    <link href="static/css/footer.css" rel="stylesheet">
+    <link href="static/css/nav.css" rel="stylesheet">
+    <link href="static/lib/css/all.min.css" rel="stylesheet">
+    <link href="static/css/all_users_tournaments.css" rel="stylesheet">
+    <title>{{ .title }}</title>
+
+{{template "nav.html" .}}
+
+    <main class="">
+        <div class="users">
+            <h1>Все пользователи</h1>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>email</th>
+                    <th>last_name</th>
+                    <th>first_name</td>
+                    <th>rool</th>
+                </tr>
+
+                {{range $key, $value := .users}}
+                <tr>
+                    <td>{{ $value.Id}}</td>
+                    <td>{{ $value.Email}}</td>
+                    <td>{{ $value.LastName}}</td>
+                    <td>{{ $value.FirstName}}</td>
+                    <td>{{ $value.Rool}}</td>
+                    <td>
+                        <form action="/change_status/{{$value.Id}}" method="get">
+                            <button type="submit" class="btn btn-success m-2">Изменить статус</button>
+                        </form>
+                    </td>
+                </tr>
+
+                {{end}}
+
+            </table>
+        </div>
+    </main>
+
+{{template "footer.html" .}}
+
+{{template "scripts.html" .}}

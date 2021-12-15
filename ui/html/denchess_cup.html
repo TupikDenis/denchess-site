@@ -1,12 +1,26 @@
 {{template "header.html" .}}
     
     <!--Доп линки на css-->
+    <link href="static/css/base.css" rel="stylesheet">
+    <link href="static/css/footer.css" rel="stylesheet">
+    <link href="static/css/nav.css" rel="stylesheet">
+    <link href="static/lib/css/all.min.css" rel="stylesheet">
+    <link href="static/css/cuppage.css" rel="stylesheet">
     <title>{{ .title }}</title>
 
 {{template "nav.html" .}}
 
     <main class="">
-
+        <div class="denchess-cup mb-5 container">
+            <h1 class="mb-4">Кубок канала DenChess</h1>
+            <p>Здесь будет положение о "Кубке канала DenChess 2022"</p>
+            {{if eq .rool "admin"}}
+            <form action="/tournaments/2021" method="GET">
+                <button type="submit" class="btn btn-success m-2">Кубок канала DenChess 2021</button>
+            </form>
+            {{end}}
+        </div>
+        
     </main>
 
 {{template "footer.html" .}}

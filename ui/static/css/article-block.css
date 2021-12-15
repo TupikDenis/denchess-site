@@ -32,8 +32,13 @@
     margin-right: 20px;
 }
 
+.last-articles-block-article-preview-text-preview{
+    font-size: 14px;
+}
+
 .last-articles-block-article-preview-header{
     border-bottom: 1px dashed grey;
+    font-size: 26px;
 }
 
 .last-articles-block-read-more{

@@ -1,0 +1,24 @@
+{{template "header.html" .}}
+    
+    <!--Доп линки на css-->
+    <link href="../../static/css/base.css" rel="stylesheet">
+    <link href="../../static/css/footer.css" rel="stylesheet">
+    <link href="../../static/css/nav.css" rel="stylesheet">
+    <link href="../../static/lib/css/all.min.css" rel="stylesheet">
+    <title>{{ .title }}</title>
+
+{{template "nav.html" .}}
+
+    <main class="">
+            <h1 class="mb-3" style="margin-top: 150px;">Написать комментарий</h1>
+            <form action="/article/comments" method="post">
+                <input type="hidden" name="id_article" value="{{ .id_article}}">
+                <textarea name="comment-content" class="p-2" id="comment" cols="131" rows="10" placeholder="Текст комментария"></textarea>
+                <button type="submit" class="btn btn-success mt-2 mb-5">Добавить комментарий</button><br>
+            </form>
+        </div>
+    </main>
+
+{{template "footer.html" .}}
+
+{{template "scripts.html" .}}
